@@ -11,15 +11,15 @@ const dataProjects = [
         projectName: "Project-1",
         pdfFiles: {
             folderName: "pdfFiles",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         doxsFiles: {
             folderName: "doxsFiles",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         videoReport: {
             folderName: "videoReport",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         size: 5,
     },
@@ -27,15 +27,15 @@ const dataProjects = [
         projectName: "Project-2",
         pdfFiles: {
             folderName: "pdfFiles",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         doxsFiles: {
             folderName: "doxsFiles",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         videoReport: {
             folderName: "videoReport",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         size: 5,
     },
@@ -43,15 +43,15 @@ const dataProjects = [
         projectName: "Project-3",
         pdfFiles: {
             folderName: "pdfFiles",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         doxsFiles: {
             folderName: "doxsFiles",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         videoReport: {
             folderName: "videoReport",
-            list: ["File1.pdf", "File2.pdf", "File3.pdf"]
+            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
         },
         size: 5,
     },

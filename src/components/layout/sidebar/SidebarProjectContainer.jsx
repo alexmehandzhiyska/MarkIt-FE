@@ -4,16 +4,26 @@ import { useState } from "react";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 
-const SidebarProjectContainer = ({project}) => {
-    const [expanded, setExpanded] = useState(false);
+const SidebarContent = ({pdfFiles}) => {
+    return (
+        <Stack>
+            {pdfFiles.map((fileName, index) => (
+                <Typography key={index}>{fileName}</Typography>
+            ))}
+        </Stack>
+    );
+}
 
-    const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
+const SidebarProjectContainer = ({project}) => {
+    const [expandedFolder, setExpandedFolder] = useState(false);
+
+    const handleChange = (panel) => (event, isExpandedFolder) => {
+        setExpandedFolder(isExpandedFolder ? panel : false);
     };
 
     return (
         <Stack>
-            <Accordion expanded={expanded === project.pdfFiles.folderName} onChange={handleChange(project.pdfFiles.folderName)}>
+            <Accordion expanded={expandedFolder === project.pdfFiles.folderName} onChange={handleChange(project.pdfFiles.folderName)}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1bh-content"
@@ -21,11 +31,41 @@ const SidebarProjectContainer = ({project}) => {
                 >
                 <Grid container>
                     <img src={projectIcon} alt="project-icon" />
-                    <Typography>{project.projectName}</Typography>
+                    <Typography>{project.pdfFiles.folderName}</Typography>
                 </Grid>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <SidebarProjectContainer project={project}/>
+                    <SidebarContent pdfFiles={project.pdfFiles.files}/>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expandedFolder === project.doxsFiles.folderName} onChange={handleChange(project.doxsFiles.folderName)}>
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+                >
+                <Grid container>
+                    <img src={projectIcon} alt="project-icon" />
+                    <Typography>{project.doxsFiles.folderName}</Typography>
+                </Grid>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <SidebarContent pdfFiles={project.doxsFiles.files}/>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expandedFolder === project.videoReport.folderName} onChange={handleChange(project.videoReport.folderName)}>
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+                >
+                <Grid container>
+                    <img src={projectIcon} alt="project-icon" />
+                    <Typography>{project.videoReport.folderName}</Typography>
+                </Grid>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <SidebarContent pdfFiles={project.pdfFiles.files}/>
                 </AccordionDetails>
             </Accordion>
 
