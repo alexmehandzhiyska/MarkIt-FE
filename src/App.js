@@ -3,6 +3,7 @@ import './App.css';
 
 import Layout from './components/layout/Layout';
 import Login from './components/auth/login/Login';
+import FileUpload from './components/file-upload/FileUpload';
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
                 <Layout>
                     <Routes>
                         <Route path="/login" element={<Login />}></Route>
+                        <Route path="/upload" element={<FileUpload />}></Route>
                     </Routes>
                 </Layout>
             </BrowserRouter>
