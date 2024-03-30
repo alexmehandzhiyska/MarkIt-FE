@@ -9,7 +9,7 @@ import { Grid } from "@mui/material";
 import copyIcon from "../../../assets/copy-icon.svg";
 
 const Header = () => {
-    const [widthScreenSize, setWidthScreenSize] = useState(window.innerWidth);
+    const [widthScreenSize, setWidthScreenSize] = useState(window.innerWidth); 
     const [open, setOpen] = useState(false);
 
     const toggleDrawer = (newOpen) => () => {
