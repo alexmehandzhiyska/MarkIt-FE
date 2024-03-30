@@ -22,6 +22,7 @@ const FileUpload = ({ addPopupShown, setAddPopupShown, setAdditionalBtnsShown })
         fileService.uploadFile(formData)
             .then(res => {
                 console.log(res.analysis);
+                setAddPopupShown(false);
                 setAdditionalBtnsShown(false);
                 navigate('/');
             })
