@@ -9,16 +9,19 @@ import fileIcon from "../../../assets/file-icon.svg";
 import styles from "./Footer.module.css";
 import FileUpload from "../../file-management/file-upload/FileUpload";
 import AddProject from "../../file-management/add-project/AddProject";
+import AddFolder from "../../file-management/add-folder/AddFolder";
 
 const Footer = () => {
     const [additionalBtnsShown, setAdditionalBtnsShown] = useState(false);
     const [filePopupShown, setFilePopupShown] = useState(false);
     const [projectPopupShown, setProjectPopupShown] = useState(false);
+    const [folderPopupShown, setFolderPopupShown] = useState(false);
 
     return (
         <>
             {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></FileUpload>}
             {projectPopupShown && <AddProject projectPopupShown={projectPopupShown} setProjectPopupShown={setProjectPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></AddProject>}
+            {folderPopupShown && <AddFolder folderPopupShown={folderPopupShown} setFolderPopupShown={setFolderPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></AddFolder>}
             
             <footer>
                 <section className={styles.additionalBtnsContainer}>
@@ -29,7 +32,7 @@ const Footer = () => {
                                 <span>Create project</span>
                             </button>
                             
-                            <button className={styles.additionalBtn}>
+                            <button className={styles.additionalBtn}  onClick={() => setFolderPopupShown(true)}>
                                 <img src={folderIcon} alt="Folder icon" />
                                 <span>Create new folder</span>
                             </button>
