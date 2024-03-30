@@ -8,64 +8,77 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import styles from "./sidebar.module.css";
 
-const dataProjects = [
-    {
-        projectName: "Project-1",
-        pdfFiles: {
-            folderName: "pdfFiles",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+const dataProjects = {
+    "hi": [
+        {
+            "file_path": "hi/myFolder/helloworld-3.pdf",
+            "extension": "pdf"
         },
-        doxsFiles: {
-            folderName: "doxsFiles",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-4.pdf",
+            "extension": "pdf"
         },
-        videoReport: {
-            folderName: "videoReport",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-5.pdf",
+            "extension": "pdf"
         },
-        size: 5,
-    },
-    {
-        projectName: "Project-2",
-        pdfFiles: {
-            folderName: "pdfFiles",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-6.pdf",
+            "extension": "pdf"
         },
-        doxsFiles: {
-            folderName: "doxsFiles",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-7.pdf",
+            "extension": "pdf"
         },
-        videoReport: {
-            folderName: "videoReport",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-8.pdf",
+            "extension": "pdf"
         },
-        size: 5,
-    },
-    {
-        projectName: "Project-3",
-        pdfFiles: {
-            folderName: "pdfFiles",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-9.pdf",
+            "extension": "pdf"
         },
-        doxsFiles: {
-            folderName: "doxsFiles",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-10.pdf",
+            "extension": "pdf"
         },
-        videoReport: {
-            folderName: "videoReport",
-            files: ["File1.pdf", "File2.pdf", "File3.pdf"]
+        {
+            "file_path": "hi/myFolder/helloworld-11.pdf",
+            "extension": "pdf"
         },
-        size: 5,
-    },
-]   
+        {
+            "file_path": "hi/myFolder/helloworld-12.pdf",
+            "extension": "pdf"
+        },
+        {
+            "file_path": "hi/myFolder/helloworld-13.pdf",
+            "extension": "pdf"
+        },
+        {
+            "file_path": "hi/myFolder/helloworld-14.pdf",
+            "extension": "pdf"
+        },
+        {
+            "file_path": "hi/myFolder/1.pdf",
+            "extension": "pdf"
+        },
+        {
+            "file_path": "hi/myFolder/helloworld-15.pdf",
+            "extension": "pdf"
+        }
+    ],
+    "hello test": [],
+    "asdfd": []
+};
 
-const username = "Konstantin"
+const username = localStorage.getItem('user').username;
 
 const SideBar = ({widthScreenSize, open, toggleDrawer}) => {
-    const [expanded, setExpanded] = useState(false);
+    const [expandedProject, setExpandedProject] = useState('');
+    const [projects, setProjects] = useState(Object.entries(dataProjects)); // CHANGE TO [] !!!!!!!!
 
     const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
+        setExpandedProject(isExpanded ? panel : false);
     };
 
     return (
@@ -78,22 +91,22 @@ const SideBar = ({widthScreenSize, open, toggleDrawer}) => {
                 </Grid>
                 <Divider className={styles.divider}/>
                 <Stack width={"100%"}>
-                    {dataProjects.map((project, index) => (
+                    {projects.map((project, index) => (
                         <Accordion
-                            expanded={expanded === project.projectName}
-                            onChange={handleChange(project.projectName)}
+                            expanded={expandedProject === project[0]}
+                            onChange={handleChange(project[0])}
                             className={styles.accordion}
                             key={index}
                         >
-                            <Grid className={expanded === project.projectName ? styles.selectedProject : ""}>
+                            <Grid className={expandedProject === project[0] ? styles.selectedProject : ""}>
                                 <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                                 >
                                 <Grid container>
-                                    <img src={expanded === project.projectName ? projectIcon: projectBlackIcon} className={styles.userIcon} alt="project-icon" />
-                                    <Typography sx={{fontWeight: 700}}>{project.projectName}</Typography>
+                                    <img src={expandedProject === project[0] ? projectIcon: projectBlackIcon} className={styles.userIcon} alt="project-icon" />
+                                    <Typography sx={{fontWeight: 700}}>{project[0]}</Typography>
                                 </Grid>
                                 </AccordionSummary>
                             </Grid>
@@ -114,22 +127,22 @@ const SideBar = ({widthScreenSize, open, toggleDrawer}) => {
                     </Grid>
                     <Divider className={styles.divider}/>
                     <Stack width={"100%"}>
-                        {dataProjects.map((project, index) => (
+                        {projects.map((project, index) => (
                             <Accordion
-                                expanded={expanded === project.projectName}
-                                onChange={handleChange(project.projectName)}
+                                expanded={expandedProject === project[0]}
+                                onChange={handleChange(project[0])}
                                 className={styles.accordion}
                                 key={index}
                             >
-                                <Grid className={expanded === project.projectName ? styles.selectedProjectResponsive : styles.projectContainerFolderResponsive}>
+                                <Grid className={expandedProject === project[0] ? styles.selectedProjectResponsive : styles.projectContainerFolderResponsive}>
                                     <AccordionSummary
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls="panel1bh-content"
                                     id="panel1bh-header"
                                     >
                                     <Grid container>
-                                        <img src={expanded === project.projectName ? projectIcon: projectBlackIcon} className={styles.userIcon} alt="project-icon" />
-                                        <Typography sx={{fontWeight: 700}}>{project.projectName}</Typography>
+                                        <img src={expandedProject === project[0] ? projectIcon: projectBlackIcon} className={styles.userIcon} alt="project-icon" />
+                                        <Typography sx={{fontWeight: 700}}>{project[0]}</Typography>
                                     </Grid>
                                     </AccordionSummary>
                                 </Grid>
