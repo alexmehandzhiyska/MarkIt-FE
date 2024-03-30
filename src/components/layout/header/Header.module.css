@@ -45,3 +45,9 @@ header section {
     color: #6750A4;
     font-weight: 400;
 }
+
+@media only screen and (max-width: 600px){
+    header {
+        padding: 1em 1em;
+    }
+}

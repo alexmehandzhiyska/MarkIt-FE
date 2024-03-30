@@ -31,10 +31,16 @@
     background-color: transparent;
 }
 
-.btnsContainer {
+.btnsContainerFileUpload {
     display: flex;
     justify-content: flex-end;
-    margin: 4em -7em -2em 0;
+    margin: 4em -9em -2em 0;
+}
+
+.btnsContainerAddProject {
+    display: flex;
+    justify-content: flex-end;
+    margin: 4em -5em -2em 0;
 }
 
 .fileInput {
@@ -95,4 +101,57 @@
     margin-left: 15px;
     border: none;
     background: transparent;
+}
+
+.fileUploadContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 40em;
+    height: 17em;
+    background-color: #F8F7FF;
+    border: 0.05px solid #9898A0;
+    box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+}
+
+@media only screen and (max-width: 600px){
+    .modalView {
+        position: absolute;
+        top: 25%;
+        left: 10%;
+    }
+
+    .fileUploadContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        width: 80%;
+        height: 20em;
+        background-color: #F8F7FF;
+        border: 0.05px solid #9898A0;
+        box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+        border-radius: 16px;
+    }
+
+    .btnsContainerFileUpload {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        margin-top:  30px;
+    }
+
+    .btnsContainerAddProject {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        margin-top:  30px;
+    }
+
+    .nameInput {
+        font-size: 14px;
+        padding-right: 0;
+    }
 }
