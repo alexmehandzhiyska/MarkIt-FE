@@ -1,7 +1,7 @@
 .sidebar {
     background-color: white;
     display: flex;
-    width: 15%;
+    width: 17%;
     height: 100%;
     padding: 12px;
     flex-direction: column;
@@ -58,4 +58,10 @@
     align-items: flex-start;
     flex-shrink: 0;
     align-self: stretch;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1440px){
+    .folderContainer {
+        flex-wrap: nowrap;
+    }
 }

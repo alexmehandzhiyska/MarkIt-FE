@@ -4,7 +4,7 @@ import { authService } from "../../../services/authService";
 import "./Header.css";
 import SideBar from "../sidebar/Sidebar";
 
-const Header = () => {
+const Header = ({widthScreenSize}) => {
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
 
     const navigate = useNavigate();
