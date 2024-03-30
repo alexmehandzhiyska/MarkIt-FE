@@ -3,7 +3,7 @@ import './App.css';
 
 import Layout from './components/layout/Layout';
 import Login from './components/auth/login/Login';
-import FileUpload from './components/file-upload/FileUpload';
+import FileUpload from './components/file-management/file-upload/FileUpload';
 
 function App() {
     return (
