@@ -44,6 +44,27 @@ const createProject = async (projectName) => {
     return data;
 };
 
+const createFolder = async (formData) => {
+    const token = JSON.parse(localStorage.getItem('user')).token;
+    formData.append('project_name', 'hi');
+    formData.append('project_path', 'myFolder');
+
+    const response = await fetch(`${baseUrl}/file/upload-file/`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Token ${token}`
+        },
+        body: formData
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data);
+    }
+
+    return data;
+};
 
 const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
     console.log(filename);
@@ -60,6 +81,7 @@ const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
     });
 
     const data = await response.json();
+    console.log("data", data);
 
     if (!response.ok) {
         throw new Error(data);
@@ -68,4 +90,4 @@ const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
     return data;
 };
 
-export const fileService = { createProject, uploadFile };
+export const fileService = { createProject, uploadFile, createFolder };
