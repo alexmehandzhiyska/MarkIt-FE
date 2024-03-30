@@ -1,5 +1,25 @@
 import { baseUrl } from "../constants";
 
+const getAll = async () => {
+    const token = JSON.parse(localStorage.getItem('user')).token;
+
+    const response = await fetch(`${baseUrl}/file/get-user-files/`, {
+        headers: {
+            'ngrok-skip-browser-warning': "69420",
+            Authorization: `Token ${token}`
+        }
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data);
+    }
+
+    return data;
+};
+
+
 const uploadFile = async (formData) => {
     const token = JSON.parse(localStorage.getItem('user')).token;
     formData.append('project_name', 'hi');
@@ -66,4 +86,4 @@ const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
     return data;
 };
 
-export const fileService = { createProject, uploadFile };
+export const fileService = { getAll, createProject, uploadFile };

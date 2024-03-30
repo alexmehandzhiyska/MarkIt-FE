@@ -10,6 +10,7 @@ import SideBar from "./sidebar/Sidebar";
 const Layout = (props) => {
     const [widthScreenSize, setWidthScreenSize] = useState(window.innerWidth); 
     const [open, setOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState()
 
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
@@ -31,10 +32,10 @@ const Layout = (props) => {
                             <img src={menuIcon} alt="menu-icon" />
                         </Grid>
                     )}
-                    <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer} />
+                    <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer} setSelectedProject={setSelectedProject} />
                 </Grid>
             <Grid item xs={10}>
-                <Header />
+                <Header selectedProject={selectedProject} />
                 {props.children}
             </Grid>
             <Grid>
