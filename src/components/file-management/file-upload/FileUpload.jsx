@@ -33,13 +33,13 @@ const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown 
 
     return (
         <Modal open={filePopupShown}>
-            <section className={`${styles.uploadContainer} ${styles.modalView}`}>
+            <section className={`${styles.fileUploadContainer} ${styles.modalView}`}>
                 <form onSubmit={submitFile} className={styles.alignElements}>
                     <img src={uploadIcon} alt="Upload folder icon" onClick={() => fileRef.current.click()} />
                     <input type="file" name="file" className={styles.fileInput} ref={fileRef} />
                     <h3>Drop your files here to upload them</h3>
 
-                    <div className={styles.btnsContainer}>
+                    <div className={styles.btnsContainerFileUpload}>
                         <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={() => { setFilePopupShown(false); setAdditionalBtnsShown(false) }}>Cancel</button>
                         <button type="submit" className={`${styles.btn} ${styles.btnPrimary}`}>Upload</button>
                     </div>
