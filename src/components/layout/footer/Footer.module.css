@@ -1,0 +1,43 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 3%;
+    bottom: 2%;
+}
+
+.additionalBtnsContainer {
+    display: flex;
+    width: 200px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.additionalBtns {
+    flex-direction: column;
+}
+.addHideBtn {
+    width: 30px;
+    align-self: flex-end;
+    font-size: 1.75rem;
+    background-color: #C8C8FF;
+    padding: 13px;
+    margin-top: 10px;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.additionalBtn {
+    display: flex;
+    align-items: center;
+    padding: 13px 15px;
+    margin: 0.8em 0;
+    background-color: #F8F7FF;
+    border: 0;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.additionalBtn img {
+    margin-right: 15px;
+}
