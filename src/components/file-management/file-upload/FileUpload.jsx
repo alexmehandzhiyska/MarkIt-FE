@@ -24,7 +24,7 @@ const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown 
                 console.log(res.analysis);
                 setFilePopupShown(false);
                 setAdditionalBtnsShown(false);
-                navigate('/');
+                navigate('/', { state: { analysis: res.analysis } });
             })
             .catch(err => {
                 console.log(err);

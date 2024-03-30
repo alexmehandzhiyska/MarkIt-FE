@@ -7,7 +7,7 @@ import "./Layout.css";
 
 const Layout = (props) => {
     return (
-        <Stack container height={"100%"}>
+        <Stack container height={"100%"} width={"100%"}>
             <Header />
             <Grid >
                 {props.children}
