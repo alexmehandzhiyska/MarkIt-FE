@@ -23,15 +23,13 @@ const Header = () => {
     }, []);
 
     return (
-        <section className={styles.menusWrapper}>
+        <Grid className={styles.menusWrapper}>
             {widthScreenSize <= 600 && (
                 <Grid position={"absolute"} right={"2%"} top={"3%"} onClick={() => setOpen(true)}>
                     <img src={menuIcon} alt="menu-icon" />
                 </Grid>
             )}
-            <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer}>
-                
-            </SideBar>
+            <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer} />
             <header>
                 <section className={styles.userProjectInfo}>
                     <div className={styles.userProfileImageWrapper}>
@@ -44,7 +42,7 @@ const Header = () => {
                     </div>
                 </section>
             </header>
-        </section>
+        </Grid>
     );
 };
 
