@@ -10,6 +10,9 @@ import styles from "./Footer.module.css";
 import FileUpload from "../../file-management/file-upload/FileUpload";
 import AddProject from "../../file-management/add-project/AddProject";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Footer = () => {
     const [additionalBtnsShown, setAdditionalBtnsShown] = useState(false);
     const [filePopupShown, setFilePopupShown] = useState(false);
@@ -17,7 +20,20 @@ const Footer = () => {
 
     return (
         <>
-            {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></FileUpload>}
+           <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+            {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown} showToast={toast}></FileUpload>}
             {projectPopupShown && <AddProject projectPopupShown={projectPopupShown} setProjectPopupShown={setProjectPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></AddProject>}
             
             <footer>

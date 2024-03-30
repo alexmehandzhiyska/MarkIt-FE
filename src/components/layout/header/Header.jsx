@@ -1,6 +1,3 @@
-import { useNavigate } from "react-router-dom";
-import { authService } from "../../../services/authService";
-
 import styles from "./Header.module.css";
 import SideBar from "../sidebar/Sidebar";
 
@@ -8,9 +5,6 @@ import userPicture from "../../../assets/profile-picture.svg";
 import copyIcon from "../../../assets/copy-icon.svg";
 
 const Header = () => {
-    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
-
-
     return (
         <section className={styles.menusWrapper}>
             <SideBar>
@@ -20,7 +14,7 @@ const Header = () => {
             <header>
                 <section className={styles.userProjectInfo}>
                     <div className={styles.userProfileImageWrapper}>
-                        <img src={userPicture} alt="User profile picture" />
+                        <img src={userPicture} alt="User profile" />
                     </div>
 
                     <div className={styles.projectInfo}>
@@ -31,7 +25,7 @@ const Header = () => {
                 
                 <section className={styles.moreOptions}>
                     <img src={copyIcon} alt="Copy icon" />
-                    <h3>Show charts</h3>
+                    <h3>Ask</h3>
                 </section>
             </header>
         </section>

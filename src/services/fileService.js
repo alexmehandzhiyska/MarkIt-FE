@@ -46,8 +46,6 @@ const createProject = async (projectName) => {
 
 
 const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
-    console.log(filename);
-    console.log(extension);
     const token = JSON.parse(localStorage.getItem('user')).token;
 
     const response = await fetch(`${baseUrl}/analyze/analyze-pdf/`, {
