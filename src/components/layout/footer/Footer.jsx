@@ -7,21 +7,24 @@ import projectIcon from "../../../assets/project-icon-black.svg";
 import fileIcon from "../../../assets/file-icon.svg";
 
 import styles from "./Footer.module.css";
-import FileUpload from "../../file-upload/FileUpload";
+import FileUpload from "../../file-management/file-upload/FileUpload";
+import AddProject from "../../file-management/add-project/AddProject";
 
 const Footer = () => {
     const [additionalBtnsShown, setAdditionalBtnsShown] = useState(false);
-    const [addPopupShown, setAddPopupShown] = useState(false);
+    const [filePopupShown, setFilePopupShown] = useState(false);
+    const [projectPopupShown, setProjectPopupShown] = useState(false);
 
     return (
         <>
-            {addPopupShown && <FileUpload addPopupShown={addPopupShown} setAddPopupShown={setAddPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></FileUpload>}
+            {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></FileUpload>}
+            {projectPopupShown && <AddProject projectPopupShown={projectPopupShown} setProjectPopupShown={setProjectPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></AddProject>}
             
             <footer>
                 <section className={styles.additionalBtnsContainer}>
-                    {additionalBtnsShown &&  !addPopupShown &&
+                    {additionalBtnsShown &&  !filePopupShown &&
                         <div className={styles.additionalBtnsContainer}>
-                            <button className={styles.additionalBtn}>
+                            <button className={styles.additionalBtn} onClick={() => setProjectPopupShown(true)}>
                                 <img src={projectIcon} alt="Project icon" />
                                 <span>Create project</span>
                             </button>
@@ -31,7 +34,7 @@ const Footer = () => {
                                 <span>Create new folder</span>
                             </button>
 
-                            <button className={styles.additionalBtn} onClick={() => setAddPopupShown(!addPopupShown)}>
+                            <button className={styles.additionalBtn} onClick={() => setFilePopupShown(true)}>
                                 <img src={fileIcon} alt="File icon" />
                                 <span>Upload</span>
                             </button>
@@ -39,7 +42,7 @@ const Footer = () => {
                     }
                 </section>
                 
-                {!additionalBtnsShown && !addPopupShown && <FontAwesomeIcon icon={faPlus} className={styles.addHideBtn} onClick={() => setAdditionalBtnsShown(!additionalBtnsShown)}></FontAwesomeIcon>}
+                {!additionalBtnsShown && !filePopupShown && <FontAwesomeIcon icon={faPlus} className={styles.addHideBtn} onClick={() => setAdditionalBtnsShown(!additionalBtnsShown)}></FontAwesomeIcon>}
                 {additionalBtnsShown && <FontAwesomeIcon icon={faX} className={styles.addHideBtn} onClick={() => setAdditionalBtnsShown(!additionalBtnsShown)}></FontAwesomeIcon>}
             </footer>
         </>
