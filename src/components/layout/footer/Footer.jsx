@@ -15,7 +15,7 @@ const Footer = () => {
 
     return (
         <>
-            {addPopupShown && <FileUpload setAddPopupShown={setAddPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></FileUpload>}
+            {addPopupShown && <FileUpload addPopupShown={addPopupShown} setAddPopupShown={setAddPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></FileUpload>}
             
             <footer>
                 <section className={styles.additionalBtnsContainer}>

@@ -6,7 +6,7 @@ import uploadIcon from "../../assets/upload-icon.svg";
 import styles from './FileUpload.module.css';
 import { Modal } from "@mui/material";
 
-const FileUpload = ({ setAddPopupShown, setAdditionalBtnsShown }) => {
+const FileUpload = ({ addPopupShown, setAddPopupShown, setAdditionalBtnsShown }) => {
     const navigate = useNavigate();
     const fileRef = useRef(null);
 
@@ -16,11 +16,12 @@ const FileUpload = ({ setAddPopupShown, setAdditionalBtnsShown }) => {
 
         const formData = new FormData();
         formData.append('file', file);
+        setAddPopupShown(false);
+        setAdditionalBtnsShown(false);
 
         fileService.uploadFile(formData)
             .then(res => {
                 console.log(res.analysis);
-                setAddPopupShown(false);
                 setAdditionalBtnsShown(false);
                 navigate('/');
             })
@@ -30,7 +31,7 @@ const FileUpload = ({ setAddPopupShown, setAdditionalBtnsShown }) => {
     }
 
     return (
-        <Modal open={true}>
+        <Modal open={addPopupShown}>
             <section className={`${styles.fileUploadContainer} ${styles.modalView}`}>
                 <form onSubmit={submitFile} className={styles.alignElements}>
                     <img src={uploadIcon} alt="Upload folder icon" onClick={() => fileRef.current.click()} />
