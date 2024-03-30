@@ -1,47 +1,40 @@
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../../services/authService";
 
-import "./Header.css";
+import styles from "./Header.module.css";
 import SideBar from "../sidebar/Sidebar";
+
+import userPicture from "../../../assets/profile-picture.svg";
+import copyIcon from "../../../assets/copy-icon.svg";
 
 const Header = () => {
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
 
-    const navigate = useNavigate();
-
-    const logout = () => {
-        authService.logout()
-            .then(res => {
-                console.log(res);
-                navigate('/');
-            })
-            .catch(err => {
-                console.log(err);
-            });
-            
-        navigate('/');
-    };
 
     return (
-        <SideBar>
-            <nav className="navbar">
-                <ul>
-                    <li><a href="/">Home</a></li>
+        <section className={styles.menusWrapper}>
+            <SideBar>
+                
+            </SideBar>
 
-                    {!user &&
-                        <>
-                            <li><a href="/login">Login</a></li>
-                        </>
-                    }
+            <header>
+                <section className={styles.userProjectInfo}>
+                    <div className={styles.userProfileImageWrapper}>
+                        <img src={userPicture} alt="User profile picture" />
+                    </div>
 
-                    {user && 
-                        <>
-                            <li><a onClick={logout}>Logout</a></li>
-                        </>
-                    }
-                </ul>
-            </nav>
-        </SideBar>
+                    <div className={styles.projectInfo}>
+                        <h2>Project name</h2>
+                        <p>25.03.2024 created</p>
+                    </div>
+                </section>
+                
+                <section className={styles.moreOptions}>
+                    <img src={copyIcon} alt="Copy icon" />
+                    <h3>Show charts</h3>
+                </section>
+            </header>
+        </section>
     );
 };
 
