@@ -72,7 +72,7 @@ const SidebarProjectContainer = ({project}) => {
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
                 >
-                <Grid container>
+                <Grid container flexWrap={"nowrap"}>
                     <img src={expandedFolder === project.videoReport.folderName ? projectWhiteIcon : projectIcon} className={styles.folderIcon} alt="project-icon" />
                     <Typography sx={{fontWeight: 700}}>{project.videoReport.folderName}</Typography>
                 </Grid>

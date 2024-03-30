@@ -37,7 +37,7 @@ const AddProject = ({ projectPopupShown, setProjectPopupShown, setAdditionalBtns
 
     return (
         <Modal open={projectPopupShown}>
-            <section className={`${styles.uploadContainer} ${styles.modalView}`} id={styles.createProjectWrapper}>
+            <section className={`${styles.fileUploadContainer} ${styles.modalView}`} id={styles.createProjectWrapper}>
                 <div className={styles.modalHeader}>
                     <img src={projectIcon} alt="Project folder icon" />
                     <p>Create new Project</p>
@@ -50,7 +50,7 @@ const AddProject = ({ projectPopupShown, setProjectPopupShown, setAdditionalBtns
                         <img src={deleteNameIcon} alt="Delete written name" onClick={() => deleteProjectName()}  />
                     </div>
 
-                    <div className={styles.btnsContainer}>
+                    <div className={styles.btnsContainerAddProject}>
                         <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={() => { setProjectPopupShown(false); setAdditionalBtnsShown(false) }}>Cancel</button>
                         <button type="submit" className={`${styles.btn} ${styles.btnPrimary}`}>Add project</button>
                     </div>

@@ -1,4 +1,5 @@
-import { Grid } from "@mui/material";
+import React from "react";
+import { Grid, Stack } from "@mui/material";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 
@@ -6,13 +7,13 @@ import "./Layout.css";
 
 const Layout = (props) => {
     return (
-        <Grid height={"100%"}>
-            <Header></Header>
-            <main>
+        <Stack container height={"100%"}>
+            <Header />
+            <Grid >
                 {props.children}
-            </main>
-            <Footer></Footer>
-        </Grid>
+            </Grid>
+            <Footer />
+        </Stack>
     );
 };
 
