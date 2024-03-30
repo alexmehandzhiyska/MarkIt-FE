@@ -22,8 +22,8 @@ const getAll = async () => {
 
 const uploadFile = async (formData) => {
     const token = JSON.parse(localStorage.getItem('user')).token;
-    formData.append('project_name', 'hi');
-    formData.append('project_path', 'myFolder');
+    formData.append('project_name', 'diyan');
+    formData.append('project_path', 'docs');
 
     const response = await fetch(`${baseUrl}/file/upload-file/`, {
         method: 'POST',
@@ -39,7 +39,11 @@ const uploadFile = async (formData) => {
         throw new Error(data);
     }
 
-    const analysis = await analyzePdf(data, 'hi', 'myFolder');
+    const extension = formData.get('file').name.split('.')[1];  
+
+    const analyzeFunction = endpointsByExtension[extension];
+
+    const analysis = await analyzeFunction(data, "diyan", "docs", formData);
     return analysis;
 };
 
@@ -65,7 +69,7 @@ const createProject = async (projectName) => {
 };
 
 
-const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
+export const analyzePdf = async ({ filename, extension }, projectName, filePath, formData) => {
     const token = JSON.parse(localStorage.getItem('user')).token;
 
     const response = await fetch(`${baseUrl}/analyze/analyze-pdf/`, {
@@ -84,6 +88,56 @@ const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
     }
 
     return data;
+};
+
+export const analyzeMp4 = async ({ filename, extension }, projectName, filePath, formData) => {
+    const token = JSON.parse(localStorage.getItem('user')).token;
+
+    formData.append('file_path', `${projectName}/${filePath}/${filename}.${extension}`)
+
+    const response = await fetch(`${baseUrl}/analyze/analyze-video/`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Token ${token}`,
+        },
+        body: formData
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data);
+    }
+
+    return data;
+};
+
+export const analyzeAudio = async ({ filename, extension }, projectName, filePath, formData) => {
+    const token = JSON.parse(localStorage.getItem('user')).token;
+
+    formData.append('file_path', `${projectName}/${filePath}/${filename}.${extension}`)
+
+    const response = await fetch(`${baseUrl}/analyze/analyze-audio/`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Token ${token}`,
+        },
+        body: formData
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data);
+    }
+
+    return data;
+};
+
+export const endpointsByExtension = {
+    "mp4": analyzeMp4,
+    "mp3": analyzeAudio,
+    "pdf": analyzePdf,
 };
 
 export const fileService = { getAll, createProject, uploadFile };
