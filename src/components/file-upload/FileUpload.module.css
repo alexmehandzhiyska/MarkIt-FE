@@ -1,0 +1,42 @@
+.fileUploadContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 40em;
+    height: 15em;
+    background-color: #F8F7FF;
+    border: 0.05px solid #9898A0;
+    box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+}
+
+.fileUploadContainer h3 {
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 0 7px;
+    border-radius: 100px;
+    border: 1.5px solid #C8C8FF;
+}
+
+.btnPrimary {
+    background-color: #C8C8FF;
+}
+
+.btnSecondary {
+    background-color: transparent;
+}
+
+.btnsContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2em -7em -1.5em 0;
+}
+
+.fileInput {
+    display: none;
+}
