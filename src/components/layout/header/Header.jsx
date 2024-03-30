@@ -1,11 +1,25 @@
 
+import { useState, useEffect } from "react";
 import userPicture from "../../../assets/profile-picture.svg";
 import styles from "./Header.module.css";
 import { Grid } from "@mui/material";
 
 import copyIcon from "../../../assets/copy-icon.svg";
+import { fileService } from "../../../services/fileService";
 
-const Header = () => {
+const Header = ({ selectedProject }) => {
+    const [projects, setProjects] = useState([]);
+    
+    useEffect(() => {
+        fileService.getAll()
+            .then(res => {
+                setProjects(Object.keys(res));
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, []);
+    
     return (
         <Grid display={"flex"}>
             <header>
@@ -15,7 +29,7 @@ const Header = () => {
                     </div>
 
                     <div className={styles.projectInfo}>
-                        <h2>Project name</h2>
+                        <h2>{selectedProject ? selectedProject : projects[0]}</h2>
                         <p>25.03.2024 created</p>
                     </div>
                 </section>
