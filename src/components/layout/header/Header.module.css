@@ -1,0 +1,53 @@
+.menusWrapper {
+    display: flex;
+    width: 100vw;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 4em;
+    width: 100vw;
+    height: 6vh;
+    box-shadow: 4px 4px 20px rgba(47, 47, 90, 0.07);
+}
+
+header section {
+    display: flex;
+    align-items: center;
+}
+
+.projectInfo {
+    margin-left: 1em;
+    text-align: left;
+}
+
+.projectInfo p {
+    color: #251B31;
+    font-weight: 300;
+}
+
+.userProfileImageWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.userProjectInfo h2,
+.userProjectInfo p {
+    margin: 3px;
+}
+
+.moreOptions * {
+    margin: 0 8px;
+}
+
+.moreOptions h3 {
+    color: #6750A4;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 600px){
+    header {
+        padding: 1em 1em;
+    }
+}

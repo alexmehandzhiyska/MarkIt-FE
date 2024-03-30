@@ -2,6 +2,9 @@ import { baseUrl } from "../constants";
 
 const uploadFile = async (formData) => {
     const token = JSON.parse(localStorage.getItem('user')).token;
+    formData.append('project_name', 'hi');
+    formData.append('project_path', 'myFolder');
+
     const response = await fetch(`${baseUrl}/file/upload-file/`, {
         method: 'POST',
         headers: {
@@ -16,11 +19,11 @@ const uploadFile = async (formData) => {
         throw new Error(data);
     }
 
-    const analysis = await analyzePdf(data);
+    const analysis = await analyzePdf(data, 'hi', 'myFolder');
     return analysis;
 };
 
-const analyzePdf = async ({ filename, extension }) => {
+const analyzePdf = async ({ filename, extension }, projectName, filePath) => {
     console.log(filename);
     console.log(extension);
     const token = JSON.parse(localStorage.getItem('user')).token;
@@ -31,7 +34,7 @@ const analyzePdf = async ({ filename, extension }) => {
             Authorization: `Token ${token}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ filename, extension })
+        body: JSON.stringify({ file_path: `${projectName}/${filePath}/${filename}.${extension}`})
     });
 
     const data = await response.json();
