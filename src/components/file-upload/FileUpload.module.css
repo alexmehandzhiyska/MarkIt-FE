@@ -40,3 +40,13 @@
 .fileInput {
     display: none;
 }
+
+.modalView {
+    position: absolute;
+    top: 35%;
+    left: 36%;
+}
+
+.alignElements {
+    text-align: center;
+}

@@ -23,27 +23,25 @@ const Header = () => {
     };
 
     return (
-        <header>
-            <SideBar>
-                <nav className="navbar">
-                    <ul>
-                        <li><a href="/">Home</a></li>
+        <SideBar>
+            <nav className="navbar">
+                <ul>
+                    <li><a href="/">Home</a></li>
 
-                        {!user &&
-                            <>
-                                <li><a href="/login">Login</a></li>
-                            </>
-                        }
+                    {!user &&
+                        <>
+                            <li><a href="/login">Login</a></li>
+                        </>
+                    }
 
-                        {user && 
-                            <>
-                                <li><a onClick={logout}>Logout</a></li>
-                            </>
-                        }
-                    </ul>
-                </nav>
-            </SideBar>
-        </header>
+                    {user && 
+                        <>
+                            <li><a onClick={logout}>Logout</a></li>
+                        </>
+                    }
+                </ul>
+            </nav>
+        </SideBar>
     );
 };
 

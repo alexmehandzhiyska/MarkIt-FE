@@ -2,9 +2,11 @@ import { Accordion, AccordionSummary, Divider, Grid, Stack, Typography } from "@
 import userIcon from "../../../assets/user-icon.svg";
 import SidebarProjectContainer from "./SidebarProjectContainer";
 import projectIcon from "../../../assets/project-icon.svg";
+import projectBlackIcon from "../../../assets/project-icon-black.svg";
 import { useState } from "react";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import styles from "./sidebar.module.css";
 
 const dataProjects = [
     {
@@ -67,26 +69,33 @@ const SideBar = () => {
     };
 
     return (
-        <Stack width={"12%"}>
-            <Grid container>
-                <img src={userIcon} alt="user-icon" />
+        <Stack className={styles.sidebar}>
+            <img src={userIcon} className={styles.logoIcon} alt="user-icon" />
+            <Grid container alignItems={"center"}>
+                <img className={styles.userIcon} src={userIcon} alt="user-icon" />
                 <Typography>{username}</Typography>
             </Grid>
-            <Divider />
-            <Stack>
-                {dataProjects.map((project) => (
-                    <Accordion expanded={expanded === project.projectName} onChange={handleChange(project.projectName)}>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                        >
-                        <Grid container>
-                            <img src={projectIcon} alt="project-icon" />
-                            <Typography>{project.projectName}</Typography>
-                            <Typography>{project.size} +</Typography>
+            <Divider className={styles.divider}/>
+            <Stack width={"100%"}>
+                {dataProjects.map((project, index) => (
+                    <Accordion
+                        expanded={expanded === project.projectName}
+                        onChange={handleChange(project.projectName)}
+                        className={styles.accordion}
+                        key={index}
+                    >
+                        <Grid className={expanded === project.projectName ? styles.selectedProject : ""}>
+                            <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1bh-content"
+                            id="panel1bh-header"
+                            >
+                            <Grid container>
+                                <img src={expanded === project.projectName ? projectIcon: projectBlackIcon} className={styles.userIcon} alt="project-icon" />
+                                <Typography sx={{fontWeight: 700}}>{project.projectName}</Typography>
+                            </Grid>
+                            </AccordionSummary>
                         </Grid>
-                        </AccordionSummary>
                         <AccordionDetails>
                             <SidebarProjectContainer project={project}/>
                         </AccordionDetails>
