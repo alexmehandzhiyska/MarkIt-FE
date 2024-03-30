@@ -7,7 +7,7 @@
 header {
     display: flex;
     justify-content: space-between;
-    padding: 1em 4em;
+    padding: 1.25em 4em;
     width: 100vw;
     height: 6vh;
     box-shadow: 4px 4px 20px rgba(47, 47, 90, 0.07);
