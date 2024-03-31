@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import Typewriter from 'typewriter-effect';
 import ReactMarkdown from 'react-markdown';
 import styles from "./Summaries.module.css";
 

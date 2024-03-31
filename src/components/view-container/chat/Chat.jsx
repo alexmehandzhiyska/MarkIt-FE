@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Stack, Grid, TextField } from "@mui/material";
-
+import ReactMarkdown from 'react-markdown';
 import { chatService } from "../../../services/chatService";
-
 import styles from "./Chat.module.css";
 import sendIcon from "../../../assets/send-icon.svg"
 
@@ -36,7 +35,7 @@ const Chat = () => {
                                 <p className={styles.userQuestion}>{message}</p>
                             }
                             {index % 2 !== 0 &&
-                                <p className={styles.chatAnswer}>{message}</p>
+                                <ReactMarkdown className={styles.chatAnswer}>{message}</ReactMarkdown>
                             }
                         </div>
                     ))}
