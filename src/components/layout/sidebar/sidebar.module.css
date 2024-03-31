@@ -14,8 +14,10 @@
 }
 
 .logoIcon {
-    width: 48px;
-    height: 48px;
+    width: 130px;
+    height: 60px;
+    margin-left: -25px;
+    margin-bottom: -10px;
 }
 
 .userIcon {

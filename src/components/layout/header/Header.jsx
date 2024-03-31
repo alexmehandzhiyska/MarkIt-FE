@@ -30,7 +30,7 @@ const Header = ({ selectedProject }) => {
                     </div>
                     <div className={styles.projectInfo}>
                         <h2>{selectedProject ? selectedProject : projects[0]}</h2>
-                        <p>25.03.2024 created</p>
+                        <p>31.03.2024 created</p>
                     </div>
                 </section>
                 

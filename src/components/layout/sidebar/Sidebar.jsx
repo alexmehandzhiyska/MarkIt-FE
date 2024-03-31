@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { fileService } from "../../../services/fileService";
 import SidebarProjectContainer from "./SidebarProjectContainer";
 
-import userIcon from "../../../assets/user-icon.svg";
+import logoIcon from "../../../assets/Logo.png";
 import projectIcon from "../../../assets/project-icon.svg";
 import projectBlackIcon from "../../../assets/project-icon-black.svg";
 
@@ -36,11 +36,7 @@ const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject }) =>
     return (
         widthScreenSize > 600 ? (
             <Stack className={styles.sidebar}>
-                <img src={userIcon} className={styles.logoIcon} alt="user-icon" />
-                <Grid container alignItems={"center"}>
-                    <img className={styles.userIcon} src={userIcon} alt="user-icon" />
-                    <Typography>{username}</Typography>
-                </Grid>
+                <img src={logoIcon} className={styles.logoIcon} alt="logo-icon" />
                 <Divider className={styles.divider}/>
                 <Stack width={"100%"}>
                     {projects.map((project, index) => (
@@ -72,11 +68,7 @@ const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject }) =>
         ) : (
             <Drawer open={open} onClose={toggleDrawer(false)}>
                 <Stack className={styles.sidebarResponsive}>
-                    <img src={userIcon} className={styles.logoIcon} alt="user-icon" />
-                    <Grid container alignItems={"center"}>
-                        <img className={styles.userIcon} src={userIcon} alt="user-icon" />
-                        <Typography>{username}</Typography>
-                    </Grid>
+                    <img src={logoIcon} className={styles.logoIcon} alt="logo-icon" />
                     <Divider className={styles.divider}/>
                     <Stack width={"100%"}>
                         {projects.map((project, index) => (

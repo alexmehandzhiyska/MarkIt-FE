@@ -28,42 +28,42 @@ const Chat = () => {
 
     return (
         <div className={styles.chatContainer}>
-        <div className={styles.chatPanel}>
-            <Grid className={styles.messageContainer} elevation={3}>
-                {messages.map((message, index) => (
-                    <div key={index} className={styles.messageDisplay}>
-                        {index % 2 === 0 && 
-                            <p className={styles.userQuestion}>{message}</p>
-                        }
-                        {index % 2 !== 0 &&
-                            <p className={styles.chatAnswer}>{message}</p>
-                        }
-                    </div>
-                ))}
-            </Grid>
-        </div>
-        <div className={styles.questionPanel}>
-            <Stack className={styles.questionInputDislikeContainer}>
-                <div className={styles.textFieldContainer}>
-                            <TextField
-                                className={styles.questionInputTextAreaDisLike}
-                                sx={{
-                                "& fieldset": { border: 'none' },
-                                }}
-                                placeholder="Write something..."
-                                onChange={(e) => setQuestion(e.target.value)}
-                                ref={questionInput}
-                            />
-                            <div
-                                className={styles.questionInputSendButton}
-                                aria-label="Ask question button"
-                            >
-                                <img src={sendIcon} className={styles.sendIcon} alt="" onClick={sendQuestion} />
-                            </div>
+            <div className={styles.chatPanel}>
+                <Grid className={styles.messageContainer} elevation={3}>
+                    {messages.map((message, index) => (
+                        <div key={index} className={styles.messageDisplay}>
+                            {index % 2 === 0 && 
+                                <p className={styles.userQuestion}>{message}</p>
+                            }
+                            {index % 2 !== 0 &&
+                                <p className={styles.chatAnswer}>{message}</p>
+                            }
                         </div>
-            </Stack>
+                    ))}
+                </Grid>
+            </div>
+            <div className={styles.questionPanel}>
+                <Stack className={styles.questionInputDislikeContainer}>
+                    <div className={styles.textFieldContainer}>
+                                <TextField
+                                    className={styles.questionInputTextAreaDisLike}
+                                    sx={{
+                                    "& fieldset": { border: 'none' },
+                                    }}
+                                    placeholder="Write something..."
+                                    onChange={(e) => setQuestion(e.target.value)}
+                                    ref={questionInput}
+                                />
+                                <div
+                                    className={styles.questionInputSendButton}
+                                    aria-label="Ask question button"
+                                >
+                                    <img src={sendIcon} className={styles.sendIcon} alt="" onClick={sendQuestion} />
+                                </div>
+                            </div>
+                </Stack>
+            </div>
         </div>
-    </div>
     );
 };
 
