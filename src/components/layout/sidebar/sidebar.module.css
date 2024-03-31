@@ -1,6 +1,7 @@
 .sidebar {
     background-color: white;
     display: flex;
+    overflow: hidden;
     width: 100%;
     height: 100vh;
     padding: 12px;
@@ -53,10 +54,23 @@
 
 .fileName {
     display: flex;
-    padding: 8px 24px 8px 56px;
-    align-items: center;
+    padding: 8px 24px 8px 16px;
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+    align-items: start;
     gap: 12px;
     align-self: stretch;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #C8C8FF;
+}
+
+.ellipsisContainer {
+    width: 65%; /* Adjust based on your requirements */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
 }
 
 .divider {
