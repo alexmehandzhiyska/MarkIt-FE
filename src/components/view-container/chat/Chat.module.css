@@ -2,6 +2,7 @@
     width: 100%;
     background: #FFF;
     padding-top: 0;
+
 }
 
 .messagePanel {
@@ -55,7 +56,7 @@
     max-height: 90vh !important;
     border-left: 2px solid #C8C8FF;
     background: #F8F7FF;
-    margin-top: -0.5em;
+    margin-top: 2.5em;
 }
 
 .chatPanel {
