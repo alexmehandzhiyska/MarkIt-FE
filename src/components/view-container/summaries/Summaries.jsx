@@ -18,7 +18,6 @@ const Summaries = () => {
     return (
         <div className={styles.summaryWrapper}>
                 <ReactMarkdown>{analysis}</ReactMarkdown>
-
         </div>
     );
 };

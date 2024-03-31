@@ -33,7 +33,7 @@ const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown,
         fileService.uploadFile(formData)
             .then((res) => {
                 showToast.update(id, { render: 'File uploaded.', type: 'success', isLoading: false, closeButton: true, autoClose: false })
-                navigate('/', { state: { analysis: res.analysis }})
+                navigate('/', { state: { analysis: res.result }})
             })
             .catch(() => {
                 showToast.update(id, { render: 'Cannot upload file.', type: 'error', isLoading: false, closeButton: true, autoClose: false });
