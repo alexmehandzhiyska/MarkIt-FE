@@ -12,7 +12,7 @@ import { Accordion, AccordionSummary, Divider, Drawer, Grid, Stack, Typography }
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject, isUploaded }) => {
+const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject, isUploaded, setIsUploaded }) => {
     const [expandedProject, setExpandedProject] = useState('');
     const [projects, setProjects] = useState([]);
     const [initState, setInitState] = useState(false);

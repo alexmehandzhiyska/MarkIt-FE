@@ -33,7 +33,7 @@ const Footer = ({isUploaded, setIsUploaded}) => {
                 theme="light"
             />
                 {/* Same as */}
-            {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown} showToast={toast} setIsUploaded={setIsUploaded}></FileUpload>}
+            {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown} showToast={toast} setIsUploaded={setIsUploaded} isUploaded={isUploaded}></FileUpload>}
             {projectPopupShown && <AddProject projectPopupShown={projectPopupShown} setProjectPopupShown={setProjectPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></AddProject>}
             
             <footer>

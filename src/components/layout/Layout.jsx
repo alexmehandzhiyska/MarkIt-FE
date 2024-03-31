@@ -33,7 +33,7 @@ const Layout = (props) => {
                             <img src={menuIcon} alt="menu-icon" />
                         </Grid>
                     )}
-                    <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer} setSelectedProject={setSelectedProject} isUploaded={isUploaded} />
+                    <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer} setSelectedProject={setSelectedProject} isUploaded={isUploaded} setIsUploaded={setIsUploaded}/>
                 </Grid>
             <Grid item xs={10}>
                 <Header selectedProject={selectedProject} />
