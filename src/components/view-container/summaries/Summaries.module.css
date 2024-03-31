@@ -1,8 +1,18 @@
 .summaryWrapper {
     width: 90%;
     margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hideCursor :nth-child(2) {
     display: none;
-}  
+}
+
+.noData {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+}

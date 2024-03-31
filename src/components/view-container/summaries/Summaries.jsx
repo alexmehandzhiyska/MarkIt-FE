@@ -12,7 +12,7 @@ const Summaries = () => {
     useEffect(() => {
         if (location.state && location.state.analysis) {
             setAnalysis(location.state.analysis);
-            setShowFormatted(false); // Reset on new analysis
+            setShowFormatted(false);
         } else {
             setAnalysis("");
         }
@@ -20,12 +20,17 @@ const Summaries = () => {
 
     return (
         <div className={styles.summaryWrapper}>
+            {!analysis && 
+                <div className={styles.noData}>
+                    <h2>There is no uploaded data</h2>
+                </div>
+            }
             {!showFormatted ? (
                 <Typewriter
                     onInit={(typewriter) => {
                         typewriter.typeString(analysis)
                             .callFunction(() => {
-                                setShowFormatted(true); // Show formatted Markdown after typing
+                                setShowFormatted(true);
                             })
                             .start();
                     }}
