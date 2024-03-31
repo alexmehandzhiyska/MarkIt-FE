@@ -11,21 +11,25 @@ const Chat = () => {
     const [oldMessages, setOldMessages] = useState("");
     const [question, setQuestion] = useState("");
     const [initState, setInitState] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const questionInput = useRef();
 
     const sendQuestion = () => {
         setInitState(true);
+        setIsLoading(true);
         questionInput.current.querySelector('input').value = "";
         setMessages([...messages, question]);
         chatService.sendPrompt(question, 'diyan', oldMessages)
             .then(res => {
-                setMessages([...messages, question, res.result]);
-                setOldMessages([...oldMessages, res.result]);
+                setMessages([...messages, question, res.analysis]);
+                setOldMessages([...oldMessages, res.analysis]);
+                setIsLoading(false);
             })
             .catch(err => {
                 console.log(err);
-            })
+                setIsLoading(false);
+            });
     }
 
     return (
@@ -44,6 +48,7 @@ const Chat = () => {
                             </div>
                         ))}
                     </Grid>
+                    {isLoading && <p className={`${styles.chatAnswer} ${styles.answerWait}`}><span className={styles.loadingDots} /></p>}
                 </div>
             ) : (
                 <div className={styles.chatPanelInit}>

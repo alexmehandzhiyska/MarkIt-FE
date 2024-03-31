@@ -10,7 +10,7 @@ const sendPrompt = async (prompt, projectName, oldConversations) => {
             'Authorization': `Token ${token}`,
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt, project_name: projectName, old_converstions: oldConversations})
+        body: JSON.stringify({ prompt, project_name: projectName, old_conversations: oldConversations})
     });
 
     const data = await response.json();
