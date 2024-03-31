@@ -8,7 +8,7 @@ import logoInit from "../../../assets/logo-chat 1.svg";
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
-    const [oldMessages, setOldMessages] = useState("");
+    const [oldMessages, setOldMessages] = useState([]);
     const [question, setQuestion] = useState("");
     const [initState, setInitState] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -20,10 +20,12 @@ const Chat = () => {
         setIsLoading(true);
         questionInput.current.querySelector('input').value = "";
         setMessages([...messages, question]);
+        setOldMessages([...oldMessages, { role: 'user', message: question }]);
         chatService.sendPrompt(question, 'diyan', oldMessages)
-            .then(res => {
+
+        .then(res => {
                 setMessages([...messages, question, res.analysis]);
-                setOldMessages([...oldMessages, res.analysis]);
+                setOldMessages([...oldMessages, { role: 'assistant', message: res.analysis }]);
                 setIsLoading(false);
             })
             .catch(err => {

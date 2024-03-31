@@ -11,6 +11,7 @@ const Summaries = () => {
 
     useEffect(() => {
         if (location.state && location.state.analysis) {
+            console.log(location.state);
             setAnalysis(location.state.analysis);
             setInitState(true)
         } else {
