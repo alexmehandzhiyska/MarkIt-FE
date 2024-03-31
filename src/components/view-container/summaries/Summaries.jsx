@@ -8,6 +8,7 @@ const Summaries = () => {
     const location = useLocation();
     const [analysis, setAnalysis] = useState("");
     const [initState, setInitState] = useState(false);
+    console.log(initState);
 
     useEffect(() => {
         if (location.state && location.state.analysis) {
@@ -20,7 +21,7 @@ const Summaries = () => {
     }, [location.state]);
 
     return (
-        <div className={`${initState} : ${styles.summaryWrapperInit} : ${styles.summaryWrapper}`}>
+        <div className={`${initState ? styles.summaryWrapper : styles.summaryWrapperInit}`}>
                 {initState ? (
                     <ReactMarkdown>{analysis}</ReactMarkdown>
                     ) : (
