@@ -3,8 +3,6 @@
     margin-top: 3em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .hideCursor :nth-child(2) {
