@@ -9,6 +9,20 @@
     padding-left: 1.5em;
 }
 
+.summaryWrapperInit {
+    width: 97.3%;
+    padding-top: 2em;
+    margin-top: 2.5em;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 86vh;
+    padding-left: 1.5em;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
 .hideCursor :nth-child(2) {
     display: none;
 }
@@ -18,4 +32,15 @@
     justify-content: center;
     height: 90vh;
     align-items: center;
+}
+
+.textStyle {
+    color: #251B31;
+    font-family: Sarabun;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 66.667% */
+    letter-spacing: 0.5px;
+    opacity: 0.8;
 }
