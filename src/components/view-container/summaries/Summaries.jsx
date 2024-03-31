@@ -1,46 +1,42 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import Typewriter from 'typewriter-effect';
+import ReactMarkdown from 'react-markdown';
 import styles from "./Summaries.module.css";
-import { useEffect, useState, useRef } from "react";
-import { Typography } from "@mui/material";
-import Typewriter from 'typewriter-effect/dist/core';
 
 const Summaries = () => {
     const location = useLocation();
     const [analysis, setAnalysis] = useState("");
-    const [typingComplete, setTypingComplete] = useState(false);
-    const typographyRef = useRef(null);
+    const [showFormatted, setShowFormatted] = useState(false);
 
     useEffect(() => {
-        if (location.state) {
+        if (location.state && location.state.analysis) {
             setAnalysis(location.state.analysis);
-            setTypingComplete(false);
+            setShowFormatted(false); // Reset on new analysis
         } else {
             setAnalysis("");
         }
     }, [location.state]);
 
-    useEffect(() => {
-        if (!analysis) return;
-
-        const typewriter = new Typewriter(typographyRef.current, {
-            delay: 0,
-            onComplete: () => setTypingComplete(true)
-        });
-
-        typewriter
-            .typeString(analysis)
-            .pauseFor(0)
-            .start();
-
-        return () => {
-            typewriter.stop();
-        };
-    }, [analysis]);
-
     return (
         <div className={styles.summaryWrapper}>
-            <Typography ref={typographyRef} className={styles.hideCursor}></Typography>
-            {typingComplete && <span>Typing Complete</span>}
+            {!showFormatted ? (
+                <Typewriter
+                    onInit={(typewriter) => {
+                        typewriter.typeString(analysis)
+                            .callFunction(() => {
+                                setShowFormatted(true); // Show formatted Markdown after typing
+                            })
+                            .start();
+                    }}
+                    options={{
+                        delay: 310,
+                        skipAddStyles: true,
+                    }}
+                />
+            ) : (
+                <ReactMarkdown>{analysis}</ReactMarkdown>
+            )}
         </div>
     );
 };
