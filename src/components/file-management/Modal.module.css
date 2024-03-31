@@ -33,14 +33,20 @@
 
 .btnsContainerFileUpload {
     display: flex;
-    justify-content: flex-end;
-    margin: 4em -9em -2em 0;
+    justify-content: center;
+    margin: 3em 0em -1em 0;
 }
 
 .btnsContainerAddProject {
     display: flex;
-    justify-content: flex-end;
-    margin: 4em -5em -2em 0;
+    justify-content: center;
+    margin: 4em 0em -2em 0em;
+}
+
+.btnsModified {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0em -1em 0;
 }
 
 .fileInput {

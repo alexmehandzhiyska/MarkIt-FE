@@ -1,4 +1,5 @@
 import { baseUrl } from "../constants";
+import { chatService } from "./chatService.js";
 
 const getAll = async () => {
     const token = JSON.parse(localStorage.getItem('user')).token;
@@ -44,7 +45,8 @@ const uploadFile = async (formData) => {
     const analyzeFunction = endpointsByExtension[extension];
 
     const analysis = await analyzeFunction(data, "diyan", "docs", formData);
-    return analysis;
+    const summary = await chatService.sendPrompt('Give me statistics', formData.get('project_name'), []);
+    return summary;
 };
 
 const createProject = async (projectName) => {

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fileService } from "../../../services/fileService";
 
@@ -7,9 +7,16 @@ import styles from '../Modal.module.css';
 
 import { Modal } from "@mui/material";
 
-const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown, showToast }) => {
+const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown, showToast, setIsUploaded }) => {
+    const [fileSelected, setFileSelected] = useState('');
+
     const navigate = useNavigate();
     const fileRef = useRef(null);
+
+    const selectFile = () => {
+        const file = fileRef.current.files[0];
+        setFileSelected(file.name)
+    };
 
     const submitFile = async (e) => {
         e.preventDefault();
@@ -26,6 +33,8 @@ const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown,
         fileService.uploadFile(formData)
             .then((res) => {
                 showToast.update(id, { render: 'File uploaded.', type: 'success', isLoading: false, closeButton: true, autoClose: false })
+                setIsUploaded(true);
+                console.log(res);
                 navigate('/', { state: { analysis: res.analysis }})
             })
             .catch(() => {
@@ -38,10 +47,11 @@ const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown,
             <section className={`${styles.fileUploadContainer} ${styles.modalView}`}>
                 <form onSubmit={submitFile} className={styles.alignElements}>
                     <img src={uploadIcon} alt="Upload folder icon" onClick={() => fileRef.current.click()} />
-                    <input type="file" name="file" className={styles.fileInput} ref={fileRef} />
+                    <input type="file" name="file" className={styles.fileInput} ref={fileRef} onChange={() => selectFile()} />
                     <h3>Drop your files here to upload them</h3>
+                    {fileSelected && <p>{fileSelected}</p>}
 
-                    <div className={styles.btnsContainerFileUpload}>
+                    <div className={`${fileSelected ? styles.btnsModified : styles.btnsContainerFileUpload}`}>
                         <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={() => { setFilePopupShown(false); setAdditionalBtnsShown(false) }}>Cancel</button>
                         <button type="submit" className={`${styles.btn} ${styles.btnPrimary}`}>Upload</button>
                     </div>

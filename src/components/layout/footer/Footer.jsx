@@ -13,7 +13,7 @@ import AddProject from "../../file-management/add-project/AddProject";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Footer = () => {
+const Footer = ({isUploaded, setIsUploaded}) => {
     const [additionalBtnsShown, setAdditionalBtnsShown] = useState(false);
     const [filePopupShown, setFilePopupShown] = useState(false);
     const [projectPopupShown, setProjectPopupShown] = useState(false);
@@ -21,19 +21,19 @@ const Footer = () => {
     return (
         <>
            <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
-{/* Same as */}
-            {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown} showToast={toast}></FileUpload>}
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+                {/* Same as */}
+            {filePopupShown && <FileUpload filePopupShown={filePopupShown} setFilePopupShown={setFilePopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown} showToast={toast} setIsUploaded={setIsUploaded}></FileUpload>}
             {projectPopupShown && <AddProject projectPopupShown={projectPopupShown} setProjectPopupShown={setProjectPopupShown} setAdditionalBtnsShown={setAdditionalBtnsShown}></AddProject>}
             
             <footer>

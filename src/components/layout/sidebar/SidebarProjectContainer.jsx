@@ -15,9 +15,9 @@ const SidebarContent = (fileObjs) => {
     }
     
     return (
-        <Stack>
+        <Stack style={{marginTop: -10}}>
             {fileNames.map((fileName, index) => (
-                <Typography className={styles.fileName} key={index}>{fileName}</Typography>
+                <Typography className={`${styles.fileName} ${styles.ellipsisContainer}`} key={index}>{fileName}</Typography>
             ))}
         </Stack>
     );
