@@ -1,67 +1,92 @@
 .chatWrapper {
-  width: 100%;
-  background: #FFF;
+    width: 100%;
+    background: #FFF;
+    padding-top: 0;
 }
 
 .messagePanel {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .chatMessageGpt {
-  margin-bottom: 20px;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  min-width: 250px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
+.messageDisplay {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
 }
 
 .userQuestion {
-  width: 50%;
-  height: 104px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background-color: #E0DFFF;
-  padding-left: 5px;
+    min-width: 40%;
+    max-width: 60%;
+    flex-shrink: 0;
+    align-self: flex-end;
+    border-radius: 12px;
+    background-color: #E0DFFF;
+    padding: 15px;
+    border-bottom-left-radius: 0px;
+}
+
+.chatAnswer {
+    background: white;
+    min-width: 40%;
+    max-width: 60%;
+    flex-shrink: 0;
+    align-self: flex-start;
+    padding: 15px;
+    border-radius: 12px;
+
+    border-bottom-right-radius: 0px;
 }
 
 .chatContainer {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border-left: 2px solid #C8C8FF;
-  background: #F8F7FF;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-left: 2px solid #C8C8FF;
+    background: #F8F7FF;
+    margin-top: 1em;
+
 }
 
 .chatPanel {
-  flex: 1;
-  overflow-y: auto;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .messageContainer {
-  padding: 16px;
-  margin-bottom: 16px;
+    display: flex;
+    flex-direction: column !important;
+    padding: 0 16px 0 16px;
+    margin-bottom: 16px;
 }
 
 .message {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .questionPanel {
-  padding: 16px;
+    padding: 16px;
 }
 
 .userMessage {
-  text-align: right;
+    text-align: right;
 }
 
 .messageText {
-  background-color: #E0DFFF;
-  padding: 8px;
-  border-radius: 12px;
+    background-color: #E0DFFF;
+    padding: 8px;
+    border-radius: 12px;
 }
 
 .questionInputButtonsContainer {
