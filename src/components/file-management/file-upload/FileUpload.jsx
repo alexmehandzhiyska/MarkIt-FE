@@ -7,7 +7,7 @@ import styles from '../Modal.module.css';
 
 import { Modal } from "@mui/material";
 
-const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown, showToast }) => {
+const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown, showToast, setIsUploaded }) => {
     const [fileSelected, setFileSelected] = useState('');
 
     const navigate = useNavigate();
@@ -33,7 +33,8 @@ const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown,
         fileService.uploadFile(formData)
             .then((res) => {
                 showToast.update(id, { render: 'File uploaded.', type: 'success', isLoading: false, closeButton: true, autoClose: false })
-                navigate('/', { state: { analysis: res.result }})
+                setIsUploaded(true);
+                navigate('/', { state: { analysis: res.analysis }})
             })
             .catch(() => {
                 showToast.update(id, { render: 'Cannot upload file.', type: 'error', isLoading: false, closeButton: true, autoClose: false });

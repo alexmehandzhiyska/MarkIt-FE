@@ -11,7 +11,8 @@ const Layout = (props) => {
     const [widthScreenSize, setWidthScreenSize] = useState(window.innerWidth); 
     const [open, setOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState()
-
+    const [isUploaded, setIsUploaded] = useState(false);
+    
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
@@ -32,14 +33,14 @@ const Layout = (props) => {
                             <img src={menuIcon} alt="menu-icon" />
                         </Grid>
                     )}
-                    <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer} setSelectedProject={setSelectedProject} />
+                    <SideBar widthScreenSize={widthScreenSize} open={open} toggleDrawer={toggleDrawer} setSelectedProject={setSelectedProject} isUploaded={isUploaded} />
                 </Grid>
             <Grid item xs={10}>
                 <Header selectedProject={selectedProject} />
                 {props.children}
             </Grid>
             <Grid>
-                <Footer></Footer>
+                <Footer isUploaded={isUploaded} setIsUploaded={setIsUploaded}></Footer>
             </Grid>
             </Grid>
         </Grid>

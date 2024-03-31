@@ -62,9 +62,9 @@
     align-items: start;
     gap: 12px;
     align-self: stretch;
-    border: solid 1px;
-    border-radius: 5px;
+    border-left: solid 3px;
     border-color: #C8C8FF;
+    text-align: left;
 }
 
 .ellipsisContainer {
