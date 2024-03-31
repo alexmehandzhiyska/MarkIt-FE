@@ -20,7 +20,7 @@ const Summaries = () => {
     }, [location.state]);
 
     return (
-        <div className={`${initState} : ${styles.summaryWrapper} : ${styles.summaryWrapperInit}`}>
+        <div className={`${initState} : ${styles.summaryWrapperInit} : ${styles.summaryWrapper}`}>
                 {initState ? (
                     <ReactMarkdown>{analysis}</ReactMarkdown>
                     ) : (

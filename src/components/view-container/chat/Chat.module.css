@@ -50,8 +50,10 @@
 
 .answerWait {
     min-width: 20%;
+    max-width: 20%;
     height: 20px;
     font-size: 1.5rem;
+    margin-left: 10px;
 }
 
 @keyframes loading {
