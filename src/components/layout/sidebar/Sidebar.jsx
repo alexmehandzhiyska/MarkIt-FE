@@ -12,8 +12,6 @@ import { Accordion, AccordionSummary, Divider, Drawer, Grid, Stack, Typography }
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const username = JSON.parse(localStorage.getItem('user')).username;
-
 const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject, isUploaded }) => {
     const [expandedProject, setExpandedProject] = useState('');
     const [projects, setProjects] = useState([]);
