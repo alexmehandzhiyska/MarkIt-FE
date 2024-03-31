@@ -1,5 +1,6 @@
 .summaryWrapper {
     width: 90%;
+    margin-top: 3em;
 }
 
 .hideCursor :nth-child(2) {
