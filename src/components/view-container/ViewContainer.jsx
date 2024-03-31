@@ -13,7 +13,7 @@ const ViewContainer = () => {
                 <Grid item xs={8}>
                     <Summaries />
                 </Grid>
-                <Grid height={"100%"} item xs={4}>
+                <Grid height={"100%"} item xs={4} padding={0}>
                     <Chat />
                 </Grid>
             </Grid>

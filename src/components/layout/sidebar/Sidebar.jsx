@@ -14,7 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const username = JSON.parse(localStorage.getItem('user')).username;
 
-const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject }) => {
+const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject, isUploaded }) => {
     const [expandedProject, setExpandedProject] = useState('');
     const [projects, setProjects] = useState([]);
 
@@ -26,7 +26,7 @@ const SideBar = ({ widthScreenSize, open, toggleDrawer, setSelectedProject }) =>
             .catch(err => {
                 console.log(err);
             });
-    }, []);
+    }, [isUploaded]);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setSelectedProject(panel)
