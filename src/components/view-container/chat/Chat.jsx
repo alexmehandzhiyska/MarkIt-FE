@@ -7,7 +7,7 @@ import sendIcon from "../../../assets/send-icon.svg"
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
-    const [oldMessages, setOldMessages] = useState("");
+    const [oldMessages, setOldMessages] = useState([]);
     const [question, setQuestion] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -17,10 +17,11 @@ const Chat = () => {
         setIsLoading(true);
         questionInput.current.querySelector('input').value = "";
         setMessages([...messages, question]);
+        setOldMessages([...oldMessages, { role: 'user', message: question }]);
         chatService.sendPrompt(question, 'diyan', oldMessages)
         .then(res => {
-                setMessages([...messages, question, res.result]);
-                setOldMessages([...oldMessages, res.result]);
+                setMessages([...messages, question, res.analysis]);
+                setOldMessages([...oldMessages, { role: 'assistant', message: res.analysis }]);
                 setIsLoading(false);
             })
             .catch(err => {

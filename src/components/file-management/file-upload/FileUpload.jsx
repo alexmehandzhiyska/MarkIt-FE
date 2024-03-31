@@ -34,6 +34,7 @@ const FileUpload = ({ filePopupShown, setFilePopupShown, setAdditionalBtnsShown,
             .then((res) => {
                 showToast.update(id, { render: 'File uploaded.', type: 'success', isLoading: false, closeButton: true, autoClose: false })
                 setIsUploaded(true);
+                console.log(res);
                 navigate('/', { state: { analysis: res.analysis }})
             })
             .catch(() => {

@@ -9,6 +9,7 @@ const Summaries = () => {
 
     useEffect(() => {
         if (location.state && location.state.analysis) {
+            console.log(location.state);
             setAnalysis(location.state.analysis);
         } else {
             setAnalysis("");
@@ -17,7 +18,7 @@ const Summaries = () => {
 
     return (
         <div className={styles.summaryWrapper}>
-                <ReactMarkdown>{analysis}</ReactMarkdown>
+            <ReactMarkdown>{analysis}</ReactMarkdown>
         </div>
     );
 };
